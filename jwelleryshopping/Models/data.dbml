@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Project_demo" Class="dataDataContext" Serialization="Unidirectional" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=Project_demo;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="Project_demoConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AdminLoginMst" Member="AdminLoginMsts">
+    <Type Name="AdminLoginMst">
+      <Column Name="userName" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.BrandMst" Member="BrandMsts">
+    <Type Name="BrandMst">
+      <Column Name="Brand_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Brand_Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CartList" Member="CartLists">
+    <Type Name="CartList">
+      <Column Name="ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Product_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="MRP" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CatMst" Member="CatMsts">
+    <Type Name="CatMst">
+      <Column Name="Cat_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Cat_Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CertifyMst" Member="CertifyMsts">
+    <Type Name="CertifyMst">
+      <Column Name="Certify_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Certify_Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DimInfoMst" Member="DimInfoMsts">
+    <Type Name="DimInfoMst">
+      <Column Name="DimID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DimType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DimSubType" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DimCrt" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DimPrice" Type="System.String" DbType="NChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DimImg" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DimMst" Member="DimMsts">
+    <Type Name="DimMst">
+      <Column Name="Style_Code" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DimQlty_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DimSubType_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Dim_Crt" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Dim_Pcs" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Dim_Gm" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Dim_Size" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Dim_Rate" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Dim_Amt" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Association Name="DimQltyMst_DimMst" Member="DimQltyMst" ThisKey="DimQlty_ID" OtherKey="DimQlty_ID" Type="DimQltyMst" IsForeignKey="true" />
+      <Association Name="DimQltySubMst_DimMst" Member="DimQltySubMst" ThisKey="DimSubType_ID" OtherKey="DimSubType_ID" Type="DimQltySubMst" IsForeignKey="true" />
+      <Association Name="ItemMst_DimMst" Member="ItemMst" ThisKey="Style_Code" OtherKey="Style_Code" Type="ItemMst" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DimQltyMst" Member="DimQltyMsts">
+    <Type Name="DimQltyMst">
+      <Column Name="DimQlty_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DimQlty" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="DimQltyMst_DimMst" Member="DimMsts" ThisKey="DimQlty_ID" OtherKey="DimQlty_ID" Type="DimMst" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DimQltySubMst" Member="DimQltySubMsts">
+    <Type Name="DimQltySubMst">
+      <Column Name="DimSubType_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DimQlty" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="DimQltySubMst_DimMst" Member="DimMsts" ThisKey="DimSubType_ID" OtherKey="DimSubType_ID" Type="DimMst" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GoldKrtMst" Member="GoldKrtMsts">
+    <Type Name="GoldKrtMst">
+      <Column Name="GoldType_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Gold_Crt" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Inquiry" Member="Inquiries">
+    <Type Name="Inquiry">
+      <Column Name="ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="City" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Contact" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="EmailID" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Comment" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Cdate" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemMst" Member="ItemMsts">
+    <Type Name="ItemMst">
+      <Column Name="Style_Code" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Pairs" Type="System.Decimal" DbType="Decimal(3,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Brand_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Cat_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Prod_Quality" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Certify_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Prod_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="GoldType_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Gold_Wt" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Stone_Wt" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Net_Gold" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Wstg_Per" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Wstg" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Tot_Gross_Wt" Type="System.Decimal" DbType="Decimal(10,3) NOT NULL" CanBeNull="false" />
+      <Column Name="Gold_Rate" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Gold_Amt" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Gold_Making" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Stone_Making" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Other_Making" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Tot_Making" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="MRP" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Association Name="ItemMst_DimMst" Member="DimMsts" ThisKey="Style_Code" OtherKey="Style_Code" Type="DimMst" />
+      <Association Name="ItemMst_StoneMst" Member="StoneMsts" ThisKey="Style_Code" OtherKey="Style_Code" Type="StoneMst" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProdMst" Member="ProdMsts">
+    <Type Name="ProdMst">
+      <Column Name="Prod_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Prod_Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.JewelTypeMst" Member="JewelTypeMsts">
+    <Type Name="JewelTypeMst">
+      <Column Name="ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Jewellery_Type" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StoneMst" Member="StoneMsts">
+    <Type Name="StoneMst">
+      <Column Name="Style_Code" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StoneQlty_ID" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Stone_Gm" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Stone_Pcs" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Stone_Crt" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Stone_Rate" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Stone_Amt" Type="System.Decimal" DbType="Decimal(10,2) NOT NULL" CanBeNull="false" />
+      <Association Name="ItemMst_StoneMst" Member="ItemMst" ThisKey="Style_Code" OtherKey="Style_Code" Type="ItemMst" IsForeignKey="true" />
+      <Association Name="StoneQltyMst_StoneMst" Member="StoneQltyMst" ThisKey="StoneQlty_ID" OtherKey="StoneQlty_ID" Type="StoneQltyMst" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StoneQltyMst" Member="StoneQltyMsts">
+    <Type Name="StoneQltyMst">
+      <Column Name="StoneQlty_ID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StoneQlty" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="StoneQltyMst_StoneMst" Member="StoneMsts" ThisKey="StoneQlty_ID" OtherKey="StoneQlty_ID" Type="StoneMst" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserRegMst" Member="UserRegMsts">
+    <Type Name="UserRegMst">
+      <Column Name="userID" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="userFname" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="userLname" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="address" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="city" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="state" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="mobNo" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="emailID" Type="System.String" DbType="Text NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="dob" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="cdate" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

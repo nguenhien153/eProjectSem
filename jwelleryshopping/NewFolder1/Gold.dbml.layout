@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Gold">
+  <DataContextMoniker Name="/GoldDataContext" />
+  <nestedChildShapes>
+    <classShape Id="03ce0425-da37-46e1-8960-1d06f6b195c7" absoluteBounds="5, 2.25, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/GoldDataContext/GoldKrtMst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="197bc970-62d6-40fe-a173-ea070a023eb8" absoluteBounds="5.015, 2.71, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Certify">
+  <DataContextMoniker Name="/CertifyDataContext" />
+  <nestedChildShapes>
+    <classShape Id="16af231f-04ec-464a-aa1e-04276f9c3b5f" absoluteBounds="5.5, 2.5, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/CertifyDataContext/CertifyMst" />
+      <nestedChildShapes>
+        <elementListCompartment Id="907043da-a47b-4b38-a186-b471577c4242" absoluteBounds="5.515, 2.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
